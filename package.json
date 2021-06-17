@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "json-server --watch db.json",
-	"build:prod": "ng build --prod --base-href /coding-example-angular-introdution/"
+	"build:prod": "ng build --prod --base-href /coding-example-angular-introduction/"
   },
   "private": true,
   "dependencies": {
