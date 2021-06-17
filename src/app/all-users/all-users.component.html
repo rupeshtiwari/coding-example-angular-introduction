@@ -1,0 +1,5 @@
+<div class="container">
+    <ul *ngFor="let user of users$|async">
+        <li> Hello <a [routerLink]="[user.id]">{{user.firstName}} </a></li>
+    </ul>
+</div>

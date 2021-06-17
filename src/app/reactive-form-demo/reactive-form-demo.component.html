@@ -1,0 +1,38 @@
+<div class="alert alert-danger" *ngIf="userNotFound">
+    No user found please enter valid user
+</div>
+
+<form class="container" [formGroup]="user" (submit)="submitUser()" *ngIf="!userNotFound">
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input class="form-control" id="firstName" placeholder="Enter First Name" formControlName="firstName">
+        <div class="alert alert-danger" *ngIf="isFirstNameInValid">
+            <span class="text text-danger">{{firstNameValidationMessage}}</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input class="form-control" id="lastName" placeholder="Enter Last Name" formControlName="lastName">
+    </div>
+
+    <div class="form-group">
+        <label for="emailId">Email Id:</label>
+        <input class="form-control" id="emailId" placeholder="Enter Email Id" formControlName="email">
+        <span class="text text-success" *ngIf="canShowValidEmailMessage">
+            {{emailIdValidMessage}}
+        </span>
+        <div class="alert alert-danger" *ngIf="isEmailInValid">
+            <span class="text text-danger">{{emailIdMessage}}</span>
+        </div>
+
+    </div>
+
+    <button [disabled]="isFormInValid" type="submit" class="btn btn-primary btn-block">Submit</button>
+
+
+    <button [hidden]="!userId" type="submit" class="btn btn-danger btn-block" (click)="deleteUser()">Delete</button>
+
+
+
+</form>

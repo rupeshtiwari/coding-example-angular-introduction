@@ -1,0 +1,34 @@
+<table border="2px" style="border-collapse: collapse;padding: 10px;margin-left: 10px; ">
+    <thead>
+        <tr>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Age </th>
+            <th>Gender</th>
+            <th>Email Id</th>
+            <th>Password</th>
+            <th>Date of Birth</th>
+            <th>Time of Birth</th>
+            <th>Academy List</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.dateOfBirth}}</td>
+            <td>{{user.timeOfBirth}}</td>
+            <td>{{user.academyList}}</td>
+            <td>{{user.country}}</td>
+            <td>{{user.state}}</td>
+            <td>{{user.city}}</td>
+        </tr>
+    </tbody>
+</table>

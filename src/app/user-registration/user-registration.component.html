@@ -1,0 +1,92 @@
+<div class="container-fluid" style="background-color: #eee">
+    <h2> My Registration App </h2>
+
+    <div class="form-group">
+        <label for="firstName"> First Name : </label>
+        <input id="firstName" class="form-control" placeholder="Enter here" [(ngModel)]="user.firstName" />
+    </div>
+
+    <div class="form-group">
+        <label for="lastName"> Last Name : </label>
+        <input id="lastName" class="form-control" placeholder="Enter here" [(ngModel)]="user.lastName" />
+    </div>
+
+    <div class="form-group">
+        <label> Age :</label>
+        <input class="form-control" placeholder="Enter here" [(ngModel)]="user.age" />
+    </div>
+
+    <div class="form-group">
+        <label> Gender :</label>
+        <div class="form-group">
+            <label>Male
+                <input class="form-control form-control-sm" type="radio" value="male" [(ngModel)]="user.gender">
+            </label>
+
+            <label>Female:
+                <input class="form-control form-control-sm" type="radio" value="female" [(ngModel)]="user.gender">
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label> Email-ID :</label>
+        <input class="form-control" type="email" placeholder="Enter here" [(ngModel)]="user.email" />
+    </div>
+
+    <div class="form-group">
+        <label> Password :</label>
+        <input class="form-control" type="password" placeholder="Enter here" [(ngModel)]="user.password" />
+    </div>
+
+    <div class="form-group">
+        <label> Date Of Birth :</label>
+        <input class="form-control" type="datetime-local" [(ngModel)]="user.dateOfBirth" />
+    </div>
+
+    <div class="form-group">
+        <label> Time Of Birth :</label>
+        <input class="form-control" type="time" [(ngModel)]="user.timeOfBirth" />
+    </div>
+
+    <div class="form-group">
+        <label> Academic Report :</label>
+        <span *ngFor="let academy of academyListFromServer">
+            <input class="form-control form-control-sm" type="checkbox" [checked]="isSelected(academy.id)"
+                [value]="academy.id" (change)="onAcademySelection($event.target.value)"> {{academy.name}}
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label> Country :</label>
+        <select class="form-control" id="country" (change)="onCountrySelection($event.target.value)">
+            <option value="">--Select Country--</option>
+            <option [value]="country.id" *ngFor="let country of countryListFromServer"> {{country.displayedText}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+
+        <label> State :</label>
+        <select class="form-control" id="state" (change)="onStateSelection($event.target.value)">
+            <option value="">--Select State--</option>
+            <option [value]="state.id" *ngFor="let state of stateList"> {{state.displayedText}} </option>
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label> City :</label>
+        <select class="form-control" id="city" (change)="onCitySelection($event.target.value)">
+            <option value="">--Select City--</option>
+            <option [value]="city.id" *ngFor="let city of cityList"> {{city.displayedText}} </option>
+
+        </select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary btn-block" (click)="register()" [disabled]="invalidForm"> Register </button>
+
+    </div>
+
+
+</div>
